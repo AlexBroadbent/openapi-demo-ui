@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline } from "@mui/joy"
+import { RouterProvider } from "react-router-dom"
 
-function App() {
+import { Header } from "./components/Header"
+import createRouter from "./routes"
+
+export default () => {
+  const router = createRouter()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <CssBaseline />
+      <Header />
+      <RouterProvider router={router} />
+    </>
+  )
 }
-
-export default App;
