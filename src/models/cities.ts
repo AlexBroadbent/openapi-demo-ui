@@ -1,5 +1,5 @@
-import { apiClient } from "./client"
 import type { City } from "../types/openapi-schema"
+import { apiClient } from "./client"
 
 export const getAllCities = async () => {
   const res = await apiClient.GET("/city", {

@@ -1,5 +1,5 @@
-import { apiClient } from "./client"
 import type { City, Route } from "../types/openapi-schema"
+import { apiClient } from "./client"
 
 export type GetRouteResult = {
   miles: Route["miles"]
