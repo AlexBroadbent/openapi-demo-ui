@@ -1,3 +1,33 @@
 {
-  "extends": ["prettier"]
+  "env": {
+    "es2022": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "react"],
+  "ignorePatterns": ["**/generated/**", "jest.config.ts"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "warn",
+    "prettier/prettier": "error",
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "tabWidth": 2
+      }
+    ],
+    "no-extra-semi": "error",
+    "no-unexpected-multiline": "error",
+    "semi": ["off", "never"]
+  },
+  "root": true
 }

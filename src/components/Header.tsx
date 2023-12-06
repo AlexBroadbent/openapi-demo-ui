@@ -8,13 +8,10 @@ export const Header = () => (
     sx={{ flexGrow: 1, py: 0.6, px: 1 }}
   >
     <Stack direction="row" alignItems="center" justifyContent="space-between">
-      <Button component="a" href="/" variant="outlined">
+      <Button component="a" href="/" variant="soft" sx={{ my: 0.5 }}>
         <Typography level="h4" color="primary" sx={{ fontWeight: "bold" }}>
           OpenAPI Demo
         </Typography>
-      </Button>
-      <Button component="a" variant="solid" href="/cities">
-        Cities
       </Button>
     </Stack>
   </Sheet>

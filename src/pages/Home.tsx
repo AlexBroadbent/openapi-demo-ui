@@ -1,15 +1,29 @@
-import { Box, Link, Typography } from "@mui/joy"
+import { Box, Grid, Typography } from "@mui/joy"
+import { getAllCities } from "../models/cities"
+import { json, useLoaderData } from "react-router-dom"
+import { City } from "../types/openapi-schema"
+import { CityCard } from "../components"
+import { getDetails } from "../models/details"
 
-export default () => (
-  <Box sx={{ my: 2 }}>
-    <Typography level="h4">Welcome to the OpenAPI Demo</Typography>
+export const citiesLoader = async () => {
+  const cities = await getAllCities()
+  return json<City[]>(cities)
+}
 
-    <Typography level="body-lg" sx={{ mt: 3 }}>
-      App for the OpenAPI Demo, using the cities and routes APIs.
-    </Typography>
+export default () => {
+  const cities = useLoaderData() as City[]
 
-    <Link level="body-lg" href="/cities" sx={{ mt: 3 }}>
-      View all cities
-    </Link>
-  </Box>
-)
+  return (
+    <Box>
+      <Typography level="h1" sx={{ my: 4 }}>
+        All Cities
+      </Typography>
+
+      <Grid container spacing={2}>
+        {cities.map((city: City) => (
+          <CityCard key={city.id} city={city} details={getDetails(city.id)} />
+        ))}
+      </Grid>
+    </Box>
+  )
+}

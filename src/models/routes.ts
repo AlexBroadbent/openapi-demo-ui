@@ -1,4 +1,4 @@
-import { apiClient } from "../models/client"
+import { apiClient } from "./client"
 import type { City, Route } from "../types/openapi-schema"
 
 export type GetRouteResult = {

@@ -1,5 +1,5 @@
-import { Link, Breadcrumbs as MuiBreadcrumbs, Typography } from "@mui/joy";
-import { FC, ReactNode } from "react";
+import { Link, Breadcrumbs as MuiBreadcrumbs, Typography } from "@mui/joy"
+import { FC, ReactNode } from "react"
 
 export const Breadcrumb: FC<{ text: string; link?: string }> = ({
   text,

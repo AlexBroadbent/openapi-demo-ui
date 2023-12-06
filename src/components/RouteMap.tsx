@@ -46,7 +46,10 @@ export const RouteMap: React.FC<{
   toCity: City
   toDetails: CityDetails
 }> = ({ fromCity, fromDetails, toCity, toDetails }) => (
-  <Box id="map" sx={{ minHeight: 300, p: 2, flexGrow: 1, height: "500px" }}>
+  <Box
+    id="map"
+    sx={{ minHeight: 300, p: 2, mb: 2, flexGrow: 1, height: "500px" }}
+  >
     <MapContainer
       center={[50, 10]}
       zoom={4}

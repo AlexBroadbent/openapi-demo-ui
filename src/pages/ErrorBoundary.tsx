@@ -32,7 +32,9 @@ export const ErrorBoundary = () => {
         <Typography level="h2">Uh oh, something went wrong</Typography>
         {error.data && <Typography level="body-lg">{error.data}</Typography>}
         {!error.data && <Typography level="body-lg">{message}</Typography>}
-        <Button variant="soft" href="/">Go Home</Button>
+        <Button variant="soft" href="/">
+          Go Home
+        </Button>
       </Stack>
     )
   }

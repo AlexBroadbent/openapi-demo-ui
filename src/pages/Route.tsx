@@ -1,9 +1,9 @@
 import { Box, Card, CardContent, Stack, Typography } from "@mui/joy"
-import { LoaderFunctionArgs, json, useLoaderData } from "react-router-dom"
+import { json, LoaderFunctionArgs, useLoaderData } from "react-router-dom"
 
 import { Breadcrumb, Breadcrumbs, DistanceText, RouteMap } from "../components"
 import { CityDetails, getDetails } from "../models/details"
-import { GetRouteResult, getRoute } from "../models/routes"
+import { getRoute, GetRouteResult } from "../models/routes"
 
 type LoaderResult = {
   fromDetails: CityDetails
@@ -39,29 +39,35 @@ export default () => {
         />
       </Breadcrumbs>
 
-      <Card>
+      <Card sx={{ m: 2 }}>
         <CardContent>
           <Stack
             direction="row"
             alignItems="center"
-            justifyContent="space-around"
+            justifyContent="space-evenly"
+            sx={{ mt: 2 }}
           >
-            <Typography level="h2" sx={{ textAlign: "center" }}>
+            <Typography
+              level="h1"
+              sx={{ fontWeight: "bold", textAlign: "center" }}
+            >
               {route.fromCity.name}
               <br />
               {getDetails(route.fromCity.id).emoji}
             </Typography>
 
             <Typography
-              level="h3"
-              display="flex"
+              level="h1"
               alignItems="center"
               sx={{ height: "100%", textAlign: "center" }}
             >
               to
             </Typography>
 
-            <Typography level="h2" sx={{ textAlign: "center" }}>
+            <Typography
+              level="h1"
+              sx={{ fontWeight: "bold", textAlign: "center" }}
+            >
               {route.toCity.name}
               <br />
               {getDetails(route.toCity.id).emoji}
@@ -69,8 +75,8 @@ export default () => {
           </Stack>
 
           <Typography
-            level="title-md"
-            sx={{ my: 2, textAlign: "center", flexGrow: 1 }}
+            level="h3"
+            sx={{ mt: 4, mb: 4, textAlign: "center", flexGrow: 1 }}
           >
             <DistanceText miles={route.miles} />
           </Typography>

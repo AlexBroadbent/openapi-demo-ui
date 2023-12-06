@@ -44,24 +44,24 @@ export default () => {
         <Breadcrumb text={city.name} />
       </Breadcrumbs>
 
-      <Card>
+      <Card sx={{ mb: 2 }}>
         <CardContent>
           <Grid container xs={12} sx={{ flexGrow: 1 }}>
             <Grid container xs={7} direction="column">
               <Stack direction="column">
-                <Typography level="h3" fontSize="xl">
-                  {city.name}
-                </Typography>
-                <Typography level="title-md" sx={{ mt: 1 }}>
+                <Typography level="h1">{city.name}</Typography>
+                <Typography level="h3" sx={{ mt: 1 }}>
                   in {city.country} {details.emoji}
                 </Typography>
-                <Typography level="title-lg" sx={{ mt: 4 }}>
+                <Typography level="h3" sx={{ mt: 4 }}>
                   Attractions in {city.name}:
                 </Typography>
                 <List size="md">
                   {details.attractions.map(
                     (attraction: CityDetails["attractions"][number]) => (
-                      <ListItem key={attraction}>{attraction}</ListItem>
+                      <ListItem key={attraction}>
+                        <Typography level="title-md">{attraction}</Typography>
+                      </ListItem>
                     ),
                   )}
                 </List>
@@ -69,12 +69,13 @@ export default () => {
             </Grid>
             <Grid container xs={5}>
               <img
+                alt={city.name}
                 src={details.imageUrl}
                 style={{ width: "100%", maxHeight: 300, maxWidth: 600 }}
               />
             </Grid>
           </Grid>
-          <Typography level="body-md" sx={{ mt: 4, fontWeight: "bold" }}>
+          <Typography level="h3" sx={{ mt: 4, fontWeight: "bold" }}>
             Route to:
           </Typography>
         </CardContent>
