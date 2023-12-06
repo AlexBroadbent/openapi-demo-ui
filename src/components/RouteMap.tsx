@@ -1,5 +1,5 @@
 import { Box } from "@mui/joy"
-import { Routing, latLng } from "leaflet"
+import { latLng, Routing } from "leaflet"
 import "leaflet-routing-machine"
 import React from "react"
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet"
