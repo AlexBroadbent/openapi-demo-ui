@@ -18,7 +18,7 @@ export const getRoute = async (
       Accept: "application/json",
     },
   })
-  if (route.response.status !== 200 || !route.data?.data)
+  if (route.response.status !== 200 || !route.data)
     throw new Response("Cannot fetch route", { status: route.response.status })
 
   const fromCity = await apiClient.GET("/city/{id}", {
@@ -28,7 +28,7 @@ export const getRoute = async (
       Accept: "application/json",
     },
   })
-  if (fromCity.response.status !== 200 || !fromCity.data?.data)
+  if (fromCity.response.status !== 200 || !fromCity.data)
     throw new Response("Cannot fetch 'from' city", {
       status: fromCity.response.status,
     })
@@ -40,14 +40,14 @@ export const getRoute = async (
       Accept: "application/json",
     },
   })
-  if (toCity.response.status !== 200 || !toCity.data?.data)
+  if (toCity.response.status !== 200 || !toCity.data)
     throw new Response("Cannot fetch 'to' city", {
       status: toCity.response.status,
     })
 
   return {
-    miles: route.data.data.miles,
-    fromCity: fromCity.data.data,
-    toCity: toCity.data.data,
+    miles: route.data.miles,
+    fromCity: fromCity.data,
+    toCity: toCity.data,
   }
 }

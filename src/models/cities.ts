@@ -9,10 +9,10 @@ export const getAllCities = async () => {
     },
   })
 
-  if (res.response.status !== 200 || !res.data?.data)
+  if (res.response.status !== 200 || !res.data)
     throw new Error("Cannot fetch cities")
 
-  return res.data.data
+  return res.data
 }
 
 export const getCity = async (id: City["id"]) => {
@@ -24,8 +24,8 @@ export const getCity = async (id: City["id"]) => {
     },
   })
 
-  if (res.response.status !== 200 || !res.data?.data)
+  if (res.response.status !== 200 || !res.data)
     throw new Response("Cannot fetch city", { status: res.response.status })
 
-  return res.data.data
+  return res.data
 }
