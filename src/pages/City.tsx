@@ -85,6 +85,7 @@ export default () => {
               component="a"
               key={routeTo.id}
               href={`/routes/${city.id}/${routeTo.id}`}
+              sx={{ fontSize: "1.2rem" }}
             >
               {routeTo.name}
             </Button>
